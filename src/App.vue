@@ -15,7 +15,9 @@
           </ul>
       </nav>
       <FadeTransitionComponent>
-        <component :is="currentTabComponent"/>
+        <KeepAlive>
+          <component :is="currentTabComponent" />
+        </KeepAlive>
       </FadeTransitionComponent>
       <!-- provide a fade transition when switching tabs and render the correct component -->
     </main>

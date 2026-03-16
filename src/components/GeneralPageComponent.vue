@@ -7,28 +7,28 @@
                 <label>
                     Username:
                 </label>
-                <input type="text" class="border border-gray-300 rounded px-2 py-1" />
+                <input type="text" v-model="general.username" class="border border-gray-300 rounded px-2 py-1" />
             </div>
             <div>
                 <label>
                     Email:
                 </label>
-                <input type="email" class="border border-gray-300 rounded px-2 py-1" />
+                <input type="email" v-model="general.email" class="border border-gray-300 rounded px-2 py-1" />
             </div>
             <div>
                 <label>
                     Gender:
                 </label>
                 <label>
-                    <input type="radio" value="male" />
+                    <input type="radio" value="male" v-model="general.gender" />
                     <span>Male</span>
                 </label>
                 <label>
-                    <input type="radio" value="female" />
+                    <input type="radio" value="female" v-model="general.gender" />
                     <span>Female</span>
                 </label>
                 <label>
-                    <input type="radio" value="other" />
+                    <input type="radio" value="other" v-model="general.gender" />
                     <span>Other</span>
                 </label>
             </div>
@@ -36,7 +36,7 @@
                 <label>
                     Location:
                 </label>
-                <select>
+                <select v-model="general.location">
                     <option value="canada">Canada</option>
                     <option value="uk">UK</option>
                     <option value="japan">Japan</option>
@@ -50,3 +50,10 @@
         <!-- This is the content for the General tab -->
     </div>
 </template>
+
+<script setup lang="ts">
+    // this component is for the content of the General tab and is rendered in the main page when the General tab is selected
+    import { useSettings } from "@/composables/useSettings";
+
+    const { general } = useSettings();
+</script>
