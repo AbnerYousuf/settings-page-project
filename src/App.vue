@@ -14,23 +14,33 @@
             <!-- render every tab and provide a clickable list-->
           </ul>
       </nav>
+      <component :is="currentTabComponent">
+      </component>
     </main>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
   import type { Tab } from '@/types';
   import type { TabNameList } from '@/types';
   import TabComponent from '@/components/TabComponent.vue';
+  import GeneralPageComponent from '@/components/GeneralPageComponent.vue';
+  import AccountPageComponent from '@/components/AccountPageComponent.vue';
+  import AppearancePageComponent from '@/components/AppearancePageComponent.vue';
+  import NotificationsPageComponent from '@/components/NotificationsPageComponent.vue';
+  import PrivacyPageComponent from '@/components/PrivacyPageComponent.vue';
 
   const tabs: Tab[] = [
-    { tabName: 'General', tabIcon: 'fa-solid fa-gear' },
-    { tabName: 'Account', tabIcon: 'fa-solid fa-user' },
-    { tabName: 'Appearance', tabIcon: 'fa-solid fa-palette' },
-    { tabName: 'Notifications', tabIcon: 'fa-solid fa-bell' },
-    { tabName: 'Privacy', tabIcon: 'fa-solid fa-shield-halved' }
+    { tabName: 'General', tabIcon: 'fa-solid fa-gear', tabComponent: GeneralPageComponent },
+    { tabName: 'Account', tabIcon: 'fa-solid fa-user', tabComponent: AccountPageComponent },
+    { tabName: 'Appearance', tabIcon: 'fa-solid fa-palette', tabComponent: AppearancePageComponent },
+    { tabName: 'Notifications', tabIcon: 'fa-solid fa-bell', tabComponent: NotificationsPageComponent },
+    { tabName: 'Privacy', tabIcon: 'fa-solid fa-shield-halved', tabComponent: PrivacyPageComponent }
   ];
 
   const currentTab = ref<TabNameList>('General');
   // this is to keep track of the current tab and also make sure the name is valid w/ the list of tabs
+
+  const currentTabComponent = computed(() => tabs.find(tab => tab.tabName === currentTab.value)?.tabComponent);
+  // this is to get the component for the current tab so we can render it in the main page
 </script>
