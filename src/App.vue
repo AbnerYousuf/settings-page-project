@@ -11,6 +11,7 @@
             >
               <TabComponent :tab="tab" :currentTab="currentTab" @click="currentTab = tab.tabName"/>
             </li>
+            <!-- render every tab and provide a clickable list-->
           </ul>
       </nav>
     </main>
@@ -31,4 +32,5 @@
   ];
 
   const currentTab = ref<TabNameList>('General');
+  // this is to keep track of the current tab and also make sure the name is valid w/ the list of tabs
 </script>
