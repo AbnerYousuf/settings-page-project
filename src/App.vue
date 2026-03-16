@@ -14,8 +14,10 @@
             <!-- render every tab and provide a clickable list-->
           </ul>
       </nav>
-      <component :is="currentTabComponent">
-      </component>
+      <transition name="fade" mode="out-in">
+        <component :is="currentTabComponent"/>
+      </transition>
+      <!-- provide a fade transition when switching tabs and render the correct component -->
     </main>
 </template>
 
@@ -44,3 +46,15 @@
   const currentTabComponent = computed(() => tabs.find(tab => tab.tabName === currentTab.value)?.tabComponent);
   // this is to get the component for the current tab so we can render it in the main page
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
