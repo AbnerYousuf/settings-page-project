@@ -17,7 +17,7 @@ import { computed } from 'vue';
         tab: Tab;
     }>();
 
-    const emit = defineEmits<{
+    defineEmits<{
         click: [];
     }>();
 
