@@ -28,20 +28,20 @@ const notifications = ref<NotificationsSettings>({
 
 interface PrivacySettings {
     profileVisibility: string;
-    isPrivate: boolean;
+    searchEngineIndexing: boolean;
 }
 
 const privacy = ref<PrivacySettings>({
     profileVisibility: "Public",
-    isPrivate: false,
+    searchEngineIndexing: false,
 });
 
-interface ApperanceSettings {
+interface AppearanceSettings {
     theme: string;
     fontSize: string;
 }
 
-const apperance = ref<ApperanceSettings>({
+const appearance = ref<AppearanceSettings>({
     theme: "Light",
     fontSize: "Medium",
 });
@@ -61,7 +61,7 @@ export function useSettings() {
     general,
     notifications,
     privacy,
-    apperance,
+    appearance,
     account
   };
 }
