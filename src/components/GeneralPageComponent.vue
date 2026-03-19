@@ -52,7 +52,6 @@
 </template>
 
 <script setup lang="ts">
-    // this component is for the content of the General tab and is rendered in the main page when the General tab is selected
     import { useSettings } from "@/composables/useSettings";
 
     const { general } = useSettings();
