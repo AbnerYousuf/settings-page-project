@@ -16,7 +16,7 @@
                 </label>
                 <input type="text" v-model="account.paymentMethods" class="border border-gray-300 rounded px-2 py-1" />
             </div>
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="btn-primary" @click.prevent="saveChanges">
                 Save Changes
             </button>
         </form>
@@ -26,7 +26,14 @@
 
 <script setup lang="ts">
     import { useSettings } from "@/composables/useSettings";
+    import { useNotifications } from "@/composables/useNotifications";
 
     const { account } = useSettings();
+
+    const { addNotification } = useNotifications();
+
+    const saveChanges = () => {
+        addNotification('Changes saved successfully!'); 
+    };
     
 </script>

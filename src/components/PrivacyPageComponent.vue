@@ -16,13 +16,19 @@
         </select>
       </div>
 
-      <button type="submit" class="btn-primary">Save</button>
+      <button type="submit" class="btn-primary" @click.prevent="saveChanges">Save</button>
     </form>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useSettings } from '@/composables/useSettings';
+import { useNotifications } from '@/composables/useNotifications';
 
 const { privacy } = useSettings();
+const { addNotification } = useNotifications();
+
+const saveChanges = () => {
+    addNotification('Changes saved successfully!'); 
+};
 </script>

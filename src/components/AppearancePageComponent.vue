@@ -68,6 +68,7 @@
             <button 
                 type="submit" 
                 class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
+                @click.prevent="saveChanges"
             >
                 Save Changes
             </button>
@@ -77,6 +78,13 @@
 
 <script setup lang="ts">
     import { useSettings } from "@/composables/useSettings";
-
+    import { useNotifications } from "@/composables/useNotifications";
+    
     const { appearance } = useSettings();
+
+    const { addNotification } = useNotifications();
+
+    const saveChanges = () => {
+        addNotification('Changes saved successfully!'); 
+    };
 </script>
