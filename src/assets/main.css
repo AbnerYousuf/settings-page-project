@@ -24,3 +24,15 @@ select {
 .btn-primary {
   @apply text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 rounded-md text-sm w-full sm:w-auto px-5 py-2 text-center;
 }
+
+.notification-list {
+  @apply fixed top-0 z-100 flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-105;
+}
+
+.notification-item {
+  @apply mb-4 pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md p-4 pr-6 shadow-lg transition-all border-2 border-teal-400 bg-teal-100 text-teal-900;
+}
+
+.notification-ack-button {
+  @apply inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium transition-colors hover:bg-teal-200 focus:outline-none focus:ring-1 focus:ring-teal-300 disabled:pointer-events-none disabled:opacity-50;
+}

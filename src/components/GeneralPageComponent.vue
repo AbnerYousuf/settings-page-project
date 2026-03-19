@@ -43,7 +43,7 @@
                     <option value="other">Other</option>
                 </select>
             </div>
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="btn-primary" @click.prevent="saveChanges">
                 Save Changes
             </button>
         </form>
@@ -52,7 +52,13 @@
 </template>
 
 <script setup lang="ts">
-    import { useSettings } from "@/composables/useSettings";
+    import { useNotifications } from "@/composables/useNotifications";
+import { useSettings } from "@/composables/useSettings";
 
     const { general } = useSettings();
+    const { addNotification } = useNotifications();
+
+    const saveChanges = () => {
+        addNotification('Changes saved successfully!'); 
+    };
 </script>

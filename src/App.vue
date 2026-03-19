@@ -20,6 +20,8 @@
         </KeepAlive>
       </FadeTransitionComponent>
       <!-- provide a fade transition when switching tabs and render the correct component -->
+      <NotificationListComponent />
+       <!-- this is to render the notifications page component so we can test the notifications system -->
     </main>
 </template>
 
@@ -34,6 +36,7 @@
   import NotificationsPageComponent from '@/components/NotificationsPageComponent.vue';
   import PrivacyPageComponent from '@/components/PrivacyPageComponent.vue';
   import FadeTransitionComponent from './components/FadeTransitionComponent.vue';
+  import NotificationListComponent from '@/components/NotificationListComponent.vue';
 
   const tabs: Tab[] = [
     { tabName: 'General', tabIcon: 'fa-solid fa-gear', tabComponent: GeneralPageComponent },
