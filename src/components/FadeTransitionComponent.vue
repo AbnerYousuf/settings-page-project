@@ -1,7 +1,7 @@
 <template>
-    <transition name="fade" mode="out-in">
-        <slot />
-    </transition>
+  <transition name="fade" mode="out-in">
+    <slot />
+  </transition>
 </template>
 
 <style scoped>

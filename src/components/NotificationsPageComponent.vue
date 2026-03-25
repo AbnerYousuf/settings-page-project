@@ -30,6 +30,6 @@ const { notifications } = useSettings();
 const { addNotification } = useNotifications();
 
 const saveChanges = () => {
-      addNotification('Changes saved successfully!'); 
+  addNotification('Changes saved successfully!');
 };
 </script>
